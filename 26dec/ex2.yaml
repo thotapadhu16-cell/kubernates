@@ -1,0 +1,12 @@
+apiversion: v1
+kind: pod
+matadata: 
+  name: example2
+  labels:
+    app: hello-world
+    env: dev
+    topic: "existing containers"
+spec: 
+  containers:
+    -  name: suicidal
+       image: hello-world:latest
