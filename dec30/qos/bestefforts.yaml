@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: example1
+  name: best-efforts
   labels:
     app: httpd
     purpose: learning
@@ -15,12 +15,3 @@ spec:
         - name: httpd
           protocol: TCP
           containerPort: 80
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,30 @@
+---
+apiveresion: v1
+kind: Deployment
+metadata:
+  name: example-1
+  lables: 
+    app: web
+spec:
+  minReadySeconds: 2
+  replicas: 4
+  revisionHistroyLimit: 10
+  selector:
+    matchLables:
+      app: web
+  Strategy:
+    type: Rollingupdate
+    rollingupdate:
+      maxSurge: 25%
+      maxUnavaiable: 25%
+  template:
+    metadata:
+      labels:
+        apps: web
+        env: dev
+    spec:
+      containers:
+        - name: web
+          image: httpd
+          ports:
+            - containerPort: 80      

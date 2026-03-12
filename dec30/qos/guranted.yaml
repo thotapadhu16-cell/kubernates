@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: example1
+  name: guranted
   labels:
     app: httpd
     purpose: learning
@@ -11,16 +11,14 @@ spec:
   containers:
     - name: httpd
       image: httpd:latest
+      resources:
+        requests:
+          cpu: 100M
+          memory: 128Mi
+        limits:
+          cpu: 100M
+          memory: 128Mi
       ports:
         - name: httpd
           protocol: TCP
           containerPort: 80
-
-
-
-
-
-
-
-
-

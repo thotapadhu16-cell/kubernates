@@ -1,0 +1,32 @@
+---
+apiveresion: v1
+kind: Deployment
+metadata:
+  name: example-1
+  lables: 
+    app: web
+    annotations:
+      kubernetes.io/change-cause: ngnix
+spec:
+  minReadySeconds: 2
+  replicas: 4
+  revisionHistroyLimit: 10
+  selector:
+    matchLables:
+      app: web
+  Strategy:
+    type: Rollingupdate
+    rollingupdate:
+      maxSurge: 25%
+      maxUnavaiable: 25%
+  template:
+    metadata:
+      labels:
+        apps: web
+        env: dev
+    spec:
+      containers:
+        - name: web
+          image: ngnix 
+          ports:
+            - containerPort: 80      
